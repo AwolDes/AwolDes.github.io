@@ -119,7 +119,7 @@ app.controller('GameController', function($scope, $interval, $localStorage){
             if ($scope.$storage.piggybankDosh <= 0){
                 // To get the dosh rolling in on first upgrade
                 $scope.$storage.piggybankDosh += 2;
-                $scope.$storage.piggybankCost += $scope.$storage.piggybankDosh * 1.2;
+                $scope.$storage.piggybankCost = (100 + $scope.$storage.piggybankDosh * 7);
                 $scope.$storage.piggybanks += 1;
                 $scope.$storage.totalDosh = ($scope.$storage.cowDosh + $scope.$storage.piggybankDosh);
                 
@@ -131,7 +131,7 @@ app.controller('GameController', function($scope, $interval, $localStorage){
                 $scope.$storage.piggybanks += 1;
                 $scope.$storage.piggybankDosh += 2 //=($scope.$storage.piggybankDosh * 1.7)
                 $scope.$storage.totalDosh = ($scope.$storage.cowDosh + $scope.$storage.piggybankDosh); 
-                $scope.$storage.piggybankCost += $scope.$storage.piggybankDosh * 2.1;
+                $scope.$storage.piggybankCost = (100 + $scope.$storage.piggybankDosh * 7);
                  console.log('Piggys: ' + $scope.$storage.piggybankDosh);
             }
             
