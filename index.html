@@ -20,10 +20,10 @@
         
         
         <p>Your Cash: {{ $storage.money | number:2 }}</p>
-        <p>Getting Paid: {{$storage.dosh| number:2}}/sec</p>
+        <p>Getting Paid: {{$storage.totalDosh| number:2}}/sec</p>
         
-        <p>Cash Cows: {{$storage.cows}}</p>
-        <p>Piggybanks: {{$storage.piggybanks}}</p>
+        <p>Cash Cows: {{$storage.cows}} ({{$storage.cowDosh | number:2}}/sec)</p>
+        <p>Piggybanks: {{$storage.piggybanks}} ({{$storage.piggybankDosh | number:2}}/sec)</p>
         
         <button ng-click="BuyCow()" ng-model="button" ng-disabled="cowState">Cow: ${{$storage.cowCost | number:2}}</button>
         
