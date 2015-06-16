@@ -101,7 +101,8 @@ app.controller('GameController', function($scope, $interval, $localStorage){
         },50);
         
         // So when it loads it gets run
-        $interval(function(){$scope.$storage.money += $scope.$storage.totalDosh},1000,0);
+        // Run every 10th of a second to give the user a smooth looking money counter
+        $interval(function(){$scope.$storage.money += $scope.$storage.totalDosh/100},10,0);
        
     };
     
