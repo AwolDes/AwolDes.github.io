@@ -5,7 +5,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
-    
+    <link rel="stylesheet" href="css/custom.css">
     
     <title>{{title}}</title>
     <script src="js/main.js"></script>
@@ -13,24 +13,54 @@
 
 
 <body>
-    <h1>{{heading}}</h1>
+    <h1 class="title">{{heading}}</h1>
     
     <div class="game-screen" ng-controller="GameController" ng-init="checkGameState()">
-        <button ng-click="GetMoney()">Add one</button>
         
         
-        <p>Your Cash: {{ $storage.money | number:2 }}</p>
-        <p>Getting Paid: {{$storage.totalDosh| number:2}}/sec</p>
+        <div class="money">
+            <p>Your Cash: ${{ $storage.money | number:2 }}</p>
+            <p>Getting Paid: {{$storage.totalDosh| number:2}}/sec</p>
+            <button class="top-btn" ng-click="GetMoney()">Add ${{$storage.clickDosh | number:2}}</button>
+            <button class="top-btn" ng-click="reset()" ng-model="button" >Reset?</button>
+        </div>
         
-        <p>Cash Cows: {{$storage.cows}} ({{$storage.cowDosh | number:2}}/sec)</p>
-        <p>Piggybanks: {{$storage.piggybanks}} ({{$storage.piggybankDosh | number:2}}/sec)</p>
-        
-        <button ng-click="BuyCow()" ng-model="button" ng-disabled="cowState">Cow: ${{$storage.cowCost | number:2}}</button>
         
         
-        <button ng-click="BuyPiggybank()" ng-model="button" ng-disabled="piggybankState">Piggybank: ${{$storage.piggybankCost | number:2}}</button>
+        <!--
+        <div class="makers">
+           <div ng-repeat="maker in makers" class="maker">
+               
+               <p>{{maker.name}}: {{maker.number}} ({{maker.dosh | number:2}})/sec</p>
+               <button class="buy" ng-click="{{maker.function}}" ng-model="button" ng-disabled="cowState">{{maker.buttonText}}: ${{maker.cost | number:2}}</button>
+               
+           </div>-->
+            <div class="makers">
+            
+            <div class="cows maker">
+
+                <p>Clicker Multiplier: {{$storage.clickDosh}}</p>
+                <button class="buy" ng-click="BuyClicker()" ng-model="button" ng-disabled="clickerState">Clicker: ${{$storage.clickCost | number:2}}</button>
+            </div>
+            
+            <div class="maker">
+
+                <p>Cash Cows: {{$storage.cows}} ({{$storage.cowDosh | number:2}}/sec)</p>
+                <button class="buy" ng-click="BuyCow()" ng-model="button" ng-disabled="cowState">Cow: ${{$storage.cowCost | number:2}}</button>
+            </div>
+
+            <div class="piggybanks maker">
+
+                <p>Piggybanks: {{$storage.piggybanks}} ({{$storage.piggybankDosh | number:2}}/sec)</p>
+                <button class="buy" ng-click="BuyPiggybank()" ng-model="button" ng-disabled="piggybankState">Piggybank: ${{$storage.piggybankCost | number:2}}</button>
+            </div>
+            
+        </div>
         
-        <button ng-click="reset()" ng-model="button" >Reset?</button>
+        
+        
+        
+        
         
         
     </div>

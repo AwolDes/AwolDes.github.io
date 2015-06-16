@@ -19,9 +19,12 @@ app.controller('GameController', function($scope, $interval, $localStorage){
         // Money
         money: 0,
         totalDosh:0,
+        clickDosh:1,
         cowDosh:0,
         piggybankDosh:0,
+        
         // Costs
+        clickCost:5,
         cowCost: 1,
         piggybankCost:100,
         // Numbers of Makers
@@ -31,17 +34,41 @@ app.controller('GameController', function($scope, $interval, $localStorage){
         
     });
     
+    /*
+    $scope.makers = [
+        {
+            name:'Cash Cows',
+            cost:$scope.$storage.cowCost,
+            dosh:$scope.$storage.cowDosh,
+            number:$scope.$storage.cows,
+            buttonText:'Cow',
+            function:'BuyCow()'
+        },
+        
+        {
+            name:'Puggy Banks;',
+            cost:$scope.$storage.piggybankCost,
+            dosh:$scope.$storage.piggybankDosh,
+            number:$scope.$storage.piggybanks,
+            buttonText:'Piggy Bank',
+            function:'BuyPiggybank()'
+        }
+        
+        
+        ]*/
+    
     
     // For the buy button
     $scope.cowState = "true";
     $scope.piggybankState = "true";
+    $scope.clickerState = "true";
     // So we can round to pretty numbers!
     $scope.Math = window.Math;
     
     // When user clicks moeny, it is increased
     $scope.GetMoney = function($localStorage) { 
         //Access the storage
-        $scope.$storage.money += 1;      
+        $scope.$storage.money += $scope.$storage.clickDosh;      
     };
     
     // Gets run on the controller intialisation
@@ -49,6 +76,13 @@ app.controller('GameController', function($scope, $interval, $localStorage){
     $scope.checkGameState = function(){
         
         $interval(function(){
+            // Buy clicker button state
+            if ($scope.$storage.money >= $scope.$storage.clickCost){
+                $scope.clickerState = "";
+                //console.log($scope.cowState);
+            }else{
+                $scope.clickerState = "disabled";
+            }
             // Buy cow button state
             if ($scope.$storage.money >= $scope.$storage.cowCost){
                 $scope.cowState = "";
@@ -71,6 +105,27 @@ app.controller('GameController', function($scope, $interval, $localStorage){
        
     };
     
+    // Upgrade clicker!
+    $scope.BuyClicker = function(){
+        // If you got more money than the cost...
+        
+        if ($scope.$storage.money >= $scope.$storage.clickCost){
+            
+            // Take some money
+            $scope.$storage.money -= $scope.$storage.clickCost;
+            
+            //... Let the dosh roll in!
+            
+            // Add some more dosh and more cost!
+                
+                
+                $scope.$storage.clickDosh = $scope.$storage.clickDosh*2 //=($scope.$storage.cowDosh * 1.5); 
+                //$scope.$storage.money = ($scope.$storage.money + $scope.$storage.clickDosh);
+                $scope.$storage.clickCost = $scope.$storage.clickCost * 10;
+                console.log('Clicker: ' + $scope.$storage.clickDosh);
+            }
+            
+        };
     
    
     // Cash cow! 
@@ -143,8 +198,12 @@ app.controller('GameController', function($scope, $interval, $localStorage){
     $scope.reset = function(){
         $scope.$storage.money = 0;
         
+        $scope.$storage.clickCost = 5;
+        $scope.$storage.clickDosh = 1;
+        
         $scope.$storage.cowCost = 1;
         $scope.$storage.cows = 0;
+        
         
         $scope.$storage.piggybankCost = 100;
         $scope.$storage.piggybanks = 0;

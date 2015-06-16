@@ -1,0 +1,97 @@
+body{
+    margin:0;
+    background-color: #EEEEEE;
+}
+
+
+.top-btn{
+    width:110px;
+    height: 40px;
+    border-radius: 5px;
+    background-color:#26C281;
+    color:black;
+    border-color: #03A678;
+    
+}
+
+
+.top-btn:disabled{
+    border: none;
+    background-color: #D2D7D3;
+}
+
+.top-btn[disabled]:hover{
+    border: none;
+    background-color: #D2D7D3;
+}
+
+.top-btn:hover{
+    background-color:#2ECC71;
+    border-color: #2ecc71;
+}
+
+.top-btn:focus{
+    border-color: none;
+    outline: none;
+}
+
+.buy{
+    width:110px;
+    height: 40px;
+    border-radius: 5px;
+    background-color:#26C281;
+    color:black;
+    border-color: #03A678;
+    margin-left:10%;
+}
+
+
+.buy:disabled{
+    border: none;
+    background-color: #D2D7D3;
+}
+
+.buy[disabled]:hover{
+    border: none;
+    background-color: #D2D7D3;
+}
+
+.buy:hover{
+    background-color:#2ECC71;
+    border-color: #2ecc71;
+}
+
+.buy:focus{
+    border-color: none;
+    outline: none;
+}
+
+.title{
+    text-align: center;
+    color:#2ecc71;
+}
+
+.game-screen{
+    color:#2ecc71;
+}
+
+.makers{
+    margin-top: 150px;
+}
+
+.money{
+    text-align: center;
+}
+
+.maker{
+    width:25%;
+    float:left;
+    position: relative;
+}
+
+.cows{
+    margin-left: 10%;
+}
+
+
+
