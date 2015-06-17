@@ -6,7 +6,7 @@ app.run(function($rootScope) {
     // Standard variables to be used in other pages
     // Resuable code! :D
     
-    $rootScope.heading = "Get Paid!"
+    $rootScope.heading = "Get Doshed, Get Paid!"
     
     
     
