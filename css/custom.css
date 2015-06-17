@@ -4,6 +4,14 @@ body{
 }
 
 
+
+button::-moz-focus-inner {
+  border: 0;
+}
+
+
+
+
 .top-btn{
     width:110px;
     height: 40px;
