@@ -5,7 +5,7 @@ var app = angular.module('GetPaid', ['ngStorage']);
 app.run(function($rootScope) {
     // Standard variables to be used in other pages
     // Resuable code! :D
-    $rootScope.title = "The Game";
+    
     $rootScope.heading = "Get Paid!"
     
     
