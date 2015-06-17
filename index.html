@@ -9,6 +9,7 @@
     <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
     
     
+    
     <link rel="stylesheet" href="css/custom.css">
     
     <title>{{title}}</title>
@@ -70,6 +71,24 @@
 
                 <p>Pocket-Monies: {{$storage.pocketMoney}} ({{$storage.pocketMoneyDosh | number:2}}/sec)</p>
                 <button class="buy" ng-click="BuyPocketMoney()" ng-model="button" ng-disabled="pocketMoneyState">Wallet: ${{$storage.pocketMoneyCost | number:2}}</button>
+            </div>
+            
+            <div class="paycheck maker second-row">
+
+                <p>Paychecks: {{$storage.paycheck}} ({{$storage.paycheckDosh | number:2}}/sec)</p>
+                <button class="buy" ng-click="BuyPaycheck()" ng-model="button" ng-disabled="paycheckState">Paycheck: ${{$storage.paycheckCost | number:2}}</button>
+            </div>
+            
+            <div class="website maker second-row">
+
+                <p>Websites: {{$storage.website}} ({{$storage.websiteDosh | number:2}}/sec)</p>
+                <button class="buy" ng-click="BuyWebsite()" ng-model="button" ng-disabled="websiteState">Website: ${{$storage.websiteCost | number:2}}</button>
+            </div>
+            
+            <div class="salary maker second-row">
+
+                <p>Salary: {{$storage.salary}} ({{$storage.salaryDosh | number:2}}/sec)</p>
+                <button class="buy" ng-click="BuySalary()" ng-model="button" ng-disabled="salaryState">Salary: ${{$storage.salaryCost | number:2}}</button>
             </div>
             
         </div>

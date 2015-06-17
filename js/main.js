@@ -26,6 +26,10 @@ app.controller('GameController', function($scope, $interval, $localStorage){
         piggybankDosh:0,
         walletDosh:0,
         pocketMoneyDosh:0,
+        paycheckDosh:0,
+        websiteDosh:0,
+        salaryDosh:0,
+        
         
         // Costs
         clickCost:5,
@@ -33,11 +37,18 @@ app.controller('GameController', function($scope, $interval, $localStorage){
         piggybankCost:100,
         walletCost:1500,
         pocketMoneyCost: 20000,
+        paycheckCost: 50000,
+        websiteCost:75000,
+        salaryCost:100000,
+        
         // Numbers of Makers
         cows:0,
         piggybanks:0,
         wallets:0,
         pocketMoney:0,
+        paycheck:0,
+        website:0,
+        salary:0,
         
         // Money Formats
         format: ""
@@ -74,6 +85,9 @@ app.controller('GameController', function($scope, $interval, $localStorage){
     $scope.clickerState = "true";
     $scope.walletState = "true";
     $scope.pocketMoneyState = "true";
+    $scope.paycheckState = "true";
+    $scope.websiteState = "true";
+    $scope.salaryState = "true";
     // So we can round to pretty numbers!
     $scope.Math = window.Math;
     
@@ -133,13 +147,39 @@ app.controller('GameController', function($scope, $interval, $localStorage){
                 $scope.pocketMoneyState = "disabled";
             }
             
+            // Buy pocket money button state
+            if ($scope.$storage.money >= $scope.$storage.paycheckCost){
+                $scope.paycheckState = "";
+                //console.log($scope.cowState);
+            }else{
+                $scope.paycheckState = "disabled";
+            }
+            
+            // Buy website button state
+            if ($scope.$storage.money >= $scope.$storage.websiteCost){
+                $scope.websiteState = "";
+                //console.log($scope.cowState);
+            }else{
+                $scope.websiteState = "disabled";
+            }
+            
+            // Buy pocket money button state
+            if ($scope.$storage.money >= $scope.$storage.salaryCost){
+                $scope.salaryState = "";
+                //console.log($scope.cowState);
+            }else{
+                $scope.salaryState = "disabled";
+            }
+            
         },50);
         
         // So when it loads it gets run
         // Run every 10th of a second to give the user a smooth looking money counter
         $interval(function(){
-            $scope.$storage.money += $scope.$storage.totalDosh/100
+            // Add more money and display the money
+            $scope.$storage.money += ($scope.$storage.totalDosh/100)
             $scope.$storage.displayMoney = $scope.$storage.money;
+            // Check if it's in the millions
             if ($scope.$storage.money >=1000000){
                 $scope.$storage.format = "M";
                 $scope.$storage.displayMoney = ($scope.$storage.money/1000000);
@@ -187,7 +227,7 @@ app.controller('GameController', function($scope, $interval, $localStorage){
             if ($scope.$storage.cowDosh <= 0){
                 // To get the dosh rolling in on first upgrade
                 $scope.$storage.cowDosh += 0.5;
-                $scope.$storage.totalDosh = ($scope.$storage.cowDosh + $scope.$storage.piggybankDosh + $scope.$storage.walletDosh + $scope.$storage.pocketMoneyDosh);
+                $scope.$storage.totalDosh = ($scope.$storage.cowDosh + $scope.$storage.piggybankDosh + $scope.$storage.walletDosh + $scope.$storage.pocketMoneyDosh + $scope.$storage.paycheckDosh + $scope.$storage.websiteDosh + $scope.$storage.salaryDosh);
                 $scope.$storage.cowCost += $scope.$storage.cowDosh * 1.2;
                 $scope.$storage.cows += 1;
                 
@@ -199,7 +239,7 @@ app.controller('GameController', function($scope, $interval, $localStorage){
                 $scope.$storage.cows += 1;
                 
                 $scope.$storage.cowDosh += 0.5//=($scope.$storage.cowDosh * 1.5); 
-                $scope.$storage.totalDosh = ($scope.$storage.cowDosh + $scope.$storage.piggybankDosh + $scope.$storage.walletDosh + $scope.$storage.pocketMoneyDosh);
+                $scope.$storage.totalDosh = ($scope.$storage.cowDosh + $scope.$storage.piggybankDosh + $scope.$storage.walletDosh + $scope.$storage.pocketMoneyDosh + $scope.$storage.paycheckDosh + $scope.$storage.websiteDosh + $scope.$storage.salaryDosh);
                 $scope.$storage.cowCost = $scope.$storage.cowDosh * 3;
                 console.log('Cows: ' + $scope.$storage.cowDosh);
             }
@@ -222,7 +262,7 @@ app.controller('GameController', function($scope, $interval, $localStorage){
                 $scope.$storage.piggybankDosh += 2;
                 $scope.$storage.piggybankCost = (100 + $scope.$storage.piggybankDosh * 7);
                 $scope.$storage.piggybanks += 1;
-                $scope.$storage.totalDosh = ($scope.$storage.cowDosh + $scope.$storage.piggybankDosh + $scope.$storage.walletDosh + $scope.$storage.pocketMoneyDosh);
+                $scope.$storage.totalDosh = ($scope.$storage.cowDosh + $scope.$storage.piggybankDosh + $scope.$storage.walletDosh + $scope.$storage.pocketMoneyDosh + $scope.$storage.paycheckDosh + $scope.$storage.websiteDosh + $scope.$storage.salaryDosh);
                 
                
                 console.log('Piggys: ' + $scope.$storage.piggybankDosh);
@@ -231,7 +271,7 @@ app.controller('GameController', function($scope, $interval, $localStorage){
                 // Add some more dosh and more cost!
                 $scope.$storage.piggybanks += 1;
                 $scope.$storage.piggybankDosh += 2 //=($scope.$storage.piggybankDosh * 1.7)
-                $scope.$storage.totalDosh = ($scope.$storage.cowDosh + $scope.$storage.piggybankDosh + $scope.$storage.walletDosh + $scope.$storage.pocketMoneyDosh); 
+                $scope.$storage.totalDosh = ($scope.$storage.cowDosh + $scope.$storage.piggybankDosh + $scope.$storage.walletDosh + $scope.$storage.pocketMoneyDosh + $scope.$storage.paycheckDosh + $scope.$storage.websiteDosh + $scope.$storage.salaryDosh); 
                 $scope.$storage.piggybankCost = (100 + $scope.$storage.piggybankDosh * 7);
                  console.log('Piggys: ' + $scope.$storage.piggybankDosh);
             }
@@ -254,7 +294,7 @@ app.controller('GameController', function($scope, $interval, $localStorage){
                 $scope.$storage.walletDosh += 5;
                 $scope.$storage.walletCost = (1500 + $scope.$storage.walletDosh * 7);
                 $scope.$storage.wallets += 1;
-                $scope.$storage.totalDosh = ($scope.$storage.cowDosh + $scope.$storage.piggybankDosh + $scope.$storage.walletDosh + $scope.$storage.pocketMoneyDosh + $scope.$storage.pocketMoneyDosh);
+                $scope.$storage.totalDosh = ($scope.$storage.cowDosh + $scope.$storage.piggybankDosh + $scope.$storage.walletDosh + $scope.$storage.pocketMoneyDosh + $scope.$storage.paycheckDosh + $scope.$storage.websiteDosh + $scope.$storage.salaryDosh);
                 
                
                 console.log('Wallets: ' + $scope.$storage.walletDosh);
@@ -263,7 +303,7 @@ app.controller('GameController', function($scope, $interval, $localStorage){
                 // Add some more dosh and more cost!
                 $scope.$storage.wallets += 1;
                 $scope.$storage.walletDosh += 5 //=($scope.$storage.piggybankDosh * 1.7)
-                $scope.$storage.totalDosh = ($scope.$storage.cowDosh + $scope.$storage.piggybankDosh + $scope.$storage.walletDosh + $scope.$storage.pocketMoneyDosh); 
+                $scope.$storage.totalDosh = ($scope.$storage.cowDosh + $scope.$storage.piggybankDosh + $scope.$storage.walletDosh + $scope.$storage.pocketMoneyDosh + $scope.$storage.paycheckDosh + $scope.$storage.websiteDosh + $scope.$storage.salaryDosh); 
                 $scope.$storage.walletCost = (1500 + $scope.$storage.walletDosh * 7);
                  console.log('Wallets: ' + $scope.$storage.walletDosh);
             }
@@ -286,18 +326,114 @@ app.controller('GameController', function($scope, $interval, $localStorage){
                 $scope.$storage.pocketMoneyDosh += 20;
                 $scope.$storage.pocketMoneyCost = (20000 + $scope.$storage.pocketMoneyDosh * 7);
                 $scope.$storage.pocketMoney += 1;
-                $scope.$storage.totalDosh = ($scope.$storage.cowDosh + $scope.$storage.piggybankDosh + $scope.$storage.walletDosh + $scope.$storage.pocketMoneyDosh);
+                $scope.$storage.totalDosh = ($scope.$storage.cowDosh + $scope.$storage.piggybankDosh + $scope.$storage.walletDosh + $scope.$storage.pocketMoneyDosh + $scope.$storage.paycheckDosh + $scope.$storage.websiteDosh + $scope.$storage.salaryDosh);
                 
                
-                console.log('Pocket Money: ' + $scope.$storage.walletDosh);
+                console.log('Pocket Money: ' + $scope.$storage.pocketMoneyDosh);
             
             }else{
                 // Add some more dosh and more cost!
                 $scope.$storage.pocketMoney += 1;
                 $scope.$storage.pocketMoneyDosh += 20 //=($scope.$storage.piggybankDosh * 1.7)
-                $scope.$storage.totalDosh = ($scope.$storage.cowDosh + $scope.$storage.piggybankDosh + $scope.$storage.walletDosh + $scope.$storage.pocketMoneyDosh); 
+                $scope.$storage.totalDosh = ($scope.$storage.cowDosh + $scope.$storage.piggybankDosh + $scope.$storage.walletDosh + $scope.$storage.pocketMoneyDosh + $scope.$storage.paycheckDosh + $scope.$storage.websiteDosh + $scope.$storage.salaryDosh); 
                 $scope.$storage.pocketMoneyCost = (20000 + $scope.$storage.pocketMoneyDosh * 7);
                  console.log('Pocket Money: ' + $scope.$storage.pocketMoneyDosh);
+            }
+            
+        }
+    };
+    
+    // Pay Checks!
+    $scope.BuyPaycheck = function(){
+        // If you got more money than the cost...
+        
+        if ($scope.$storage.money >= $scope.$storage.paycheckCost){
+            
+            // Take some money
+            $scope.$storage.money -= $scope.$storage.paycheckCost;
+            
+            //... Let the dosh roll in!
+            if ($scope.$storage.paycheckDosh <= 0){
+                // To get the dosh rolling in on first upgrade
+                $scope.$storage.paycheckDosh += 100;
+                $scope.$storage.paycheckCost = (50000 + $scope.$storage.pocketMoneyDosh * 7);
+                $scope.$storage.paycheck += 1;
+                $scope.$storage.totalDosh = ($scope.$storage.cowDosh + $scope.$storage.piggybankDosh + $scope.$storage.walletDosh + $scope.$storage.pocketMoneyDosh + $scope.$storage.paycheckDosh + $scope.$storage.websiteDosh + $scope.$storage.salaryDosh);
+                
+               
+                console.log('Paycheck: ' + $scope.$storage.paycheckDosh);
+            
+            }else{
+                // Add some more dosh and more cost!
+                $scope.$storage.paycheck += 1;
+                $scope.$storage.paycheckDosh += 100 //=($scope.$storage.piggybankDosh * 1.7)
+                $scope.$storage.totalDosh = ($scope.$storage.cowDosh + $scope.$storage.piggybankDosh + $scope.$storage.walletDosh + $scope.$storage.pocketMoneyDosh + $scope.$storage.paycheckDosh + $scope.$storage.websiteDosh + $scope.$storage.salaryDosh); 
+                $scope.$storage.paycheckCost = (50000 + $scope.$storage.paycheckDosh * 10);
+                 console.log('Paycheck: ' + $scope.$storage.paycheckDosh);
+            }
+            
+        }
+    };
+    
+    // Websites!
+    $scope.BuyWebsite = function(){
+        // If you got more money than the cost...
+        
+        if ($scope.$storage.money >= $scope.$storage.websiteCost){
+            
+            // Take some money
+            $scope.$storage.money -= $scope.$storage.websiteCost;
+            
+            //... Let the dosh roll in!
+            if ($scope.$storage.websiteDosh <= 0){
+                // To get the dosh rolling in on first upgrade
+                $scope.$storage.websiteDosh += 300;
+                $scope.$storage.websiteCost = (75000 + $scope.$storage.websiteDosh * 12);
+                $scope.$storage.website += 1;
+                $scope.$storage.totalDosh = ($scope.$storage.cowDosh + $scope.$storage.piggybankDosh + $scope.$storage.walletDosh + $scope.$storage.pocketMoneyDosh + $scope.$storage.paycheckDosh + $scope.$storage.websiteDosh + $scope.$storage.salaryDosh);
+                
+               
+                console.log('Website: ' + $scope.$storage.websiteDosh);
+            
+            }else{
+                // Add some more dosh and more cost!
+                $scope.$storage.website += 1;
+                $scope.$storage.websiteDosh += 100 //=($scope.$storage.piggybankDosh * 1.7)
+                $scope.$storage.totalDosh = ($scope.$storage.cowDosh + $scope.$storage.piggybankDosh + $scope.$storage.walletDosh + $scope.$storage.pocketMoneyDosh + $scope.$storage.paycheckDosh + $scope.$storage.websiteDosh + $scope.$storage.salaryDosh); 
+                $scope.$storage.websiteCost = (75000 + $scope.$storage.websiteDosh * 10);
+                 console.log('Website: ' + $scope.$storage.websiteDosh);
+            }
+            
+        }
+    };
+    
+    // Salaries!
+    $scope.BuySalary = function(){
+        // If you got more money than the cost...
+        
+        if ($scope.$storage.money >= $scope.$storage.salaryCost){
+            
+            // Take some money
+            $scope.$storage.money -= $scope.$storage.salaryCost;
+            
+            //... Let the dosh roll in!
+            if ($scope.$storage.salaryDosh <= 0){
+                // To get the dosh rolling in on first upgrade
+                $scope.$storage.salaryDosh += 500;
+                $scope.$storage.salaryCost = (100000 + $scope.$storage.salaryDosh * 7);
+                $scope.$storage.salary += 1;
+                $scope.$storage.totalDosh = ($scope.$storage.cowDosh + $scope.$storage.piggybankDosh + $scope.$storage.walletDosh + $scope.$storage.pocketMoneyDosh + $scope.$storage.paycheckDosh + $scope.$storage.websiteDosh + $scope.$storage.salaryDosh);
+                
+               
+                console.log('Salary: ' + $scope.$storage.salaryDosh);
+            
+            }else{
+                // Add some more dosh and more cost!
+                $scope.$storage.salary += 1;
+                $scope.$storage.salaryDosh += 100 //=($scope.$storage.piggybankDosh * 1.7)
+                $scope.$storage.totalDosh = ($scope.$storage.cowDosh + $scope.$storage.piggybankDosh + $scope.$storage.walletDosh + $scope.$storage.pocketMoneyDosh + $scope.$storage.paycheckDosh + $scope.$storage.websiteDosh + $scope.$storage.salaryDosh); 
+                $scope.$storage.salaryCost = (100000 + $scope.$storage.salaryDosh * 7);
+                 console.log('Website: ' + $scope.$storage.salaryDosh);
             }
             
         }
@@ -328,6 +464,10 @@ app.controller('GameController', function($scope, $interval, $localStorage){
         $scope.$storage.pocketMoneyCost = 20000;
         $scope.$storage.pocketMoneyDosh = 0;
         $scope.$storage.pocketMoney = 0;
+        
+        $scope.$storage.paycheckCost = 50000;
+        $scope.$storage.paycheckDosh = 0;
+        $scope.$storage.paycheck = 0;
         
         $scope.$storage.totalDosh = 0;
         
