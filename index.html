@@ -55,6 +55,12 @@
                 <button class="buy" ng-click="BuyPiggybank()" ng-model="button" ng-disabled="piggybankState">Piggybank: ${{$storage.piggybankCost | number:2}}</button>
             </div>
             
+            <div class="wallets maker">
+
+                <p>Wallets: {{$storage.wallets}} ({{$storage.walletDosh | number:2}}/sec)</p>
+                <button class="buy" ng-click="BuyWallet()" ng-model="button" ng-disabled="walletState">Wallet: ${{$storage.walletCost | number:2}}</button>
+            </div>
+            
         </div>
         
         
