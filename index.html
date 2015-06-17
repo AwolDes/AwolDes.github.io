@@ -65,6 +65,13 @@
                 <button class="buy" ng-click="BuyWallet()" ng-model="button" ng-disabled="walletState">Wallet: ${{$storage.walletCost | number:2}}</button>
             </div>
             
+            <!-- Second Row -->
+            <div class="pocket-money maker second-row">
+
+                <p>Pocket-Monies: {{$storage.pocketMoney}} ({{$storage.pocketMoneyDosh | number:2}}/sec)</p>
+                <button class="buy" ng-click="BuyPocketMoney()" ng-model="button" ng-disabled="pocketMoneyState">Wallet: ${{$storage.pocketMoneyCost | number:2}}</button>
+            </div>
+            
         </div>
         
         
