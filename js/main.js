@@ -34,8 +34,10 @@ app.controller('GameController', function($scope, $interval, $localStorage){
         // Numbers of Makers
         cows:0,
         piggybanks:0,
-        wallets:0
+        wallets:0,
         
+        // Money Formats
+        format: ""
         
     });
     
@@ -127,7 +129,10 @@ app.controller('GameController', function($scope, $interval, $localStorage){
             $scope.$storage.money += $scope.$storage.totalDosh/100
             $scope.$storage.displayMoney = $scope.$storage.money;
             if ($scope.$storage.money >=1000000){
-                //$scope.$storage.displayMoney = ($scope.$storage.money/1000000);
+                $scope.$storage.format = "M";
+                $scope.$storage.displayMoney = ($scope.$storage.money/1000000);
+            } else{
+                $scope.$storage.format = "";
             }
         
         },10,0);
@@ -260,7 +265,7 @@ app.controller('GameController', function($scope, $interval, $localStorage){
         $scope.$storage.money = 0;
         
         $scope.$storage.clickCost = 5;
-        $scope.$storage.clickDosh = 1000000;
+        $scope.$storage.clickDosh = 1;
         
         $scope.$storage.cowCost = 1;
         $scope.$storage.cows = 0;

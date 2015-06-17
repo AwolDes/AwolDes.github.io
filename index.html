@@ -23,7 +23,7 @@
         
         
         <div class="money">
-            <p>Your Cash: ${{ $storage.displayMoney | number:2 }}</p>
+            <p>Your Cash: ${{ $storage.displayMoney | number:2 }}{{$storage.format}}</p>
             <p>Getting Paid: {{$storage.totalDosh| number:2}}/sec</p>
             <button class="top-btn" ng-click="GetMoney()">Add ${{$storage.clickDosh | number:2}}</button>
             <button class="top-btn" ng-click="reset()" ng-model="button" >Reset?</button>
