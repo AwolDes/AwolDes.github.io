@@ -2,9 +2,13 @@
 <html ng-app = "GetPaid">
 
 <head>
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
+    
+    
     <link rel="stylesheet" href="css/custom.css">
     
     <title>{{title}}</title>
@@ -19,7 +23,7 @@
         
         
         <div class="money">
-            <p>Your Cash: ${{ $storage.money | number:2 }}</p>
+            <p>Your Cash: ${{ $storage.displayMoney | number:2 }}</p>
             <p>Getting Paid: {{$storage.totalDosh| number:2}}/sec</p>
             <button class="top-btn" ng-click="GetMoney()">Add ${{$storage.clickDosh | number:2}}</button>
             <button class="top-btn" ng-click="reset()" ng-model="button" >Reset?</button>
@@ -71,7 +75,17 @@
         
     </div>
     
-    
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64230002-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
     
 </body>
 
