@@ -18,6 +18,7 @@ app.controller('GameController', function($scope, $interval, $localStorage){
     $scope.$storage = $localStorage.$default({
         // Money
         money: 0,
+        displayMoney:0,
         totalDosh:0,
         clickDosh:1,
         
@@ -110,11 +111,26 @@ app.controller('GameController', function($scope, $interval, $localStorage){
                 $scope.walletState = "disabled";
             }
             
+            // Buy wallet button state
+            if ($scope.$storage.money >= $scope.$storage.walletCost){
+                $scope.walletState = "";
+                //console.log($scope.cowState);
+            }else{
+                $scope.walletState = "disabled";
+            }
+            
         },50);
         
         // So when it loads it gets run
         // Run every 10th of a second to give the user a smooth looking money counter
-        $interval(function(){$scope.$storage.money += $scope.$storage.totalDosh/100},10,0);
+        $interval(function(){
+            $scope.$storage.money += $scope.$storage.totalDosh/100
+            $scope.$storage.displayMoney = $scope.$storage.money;
+            if ($scope.$storage.money >=1000000){
+                //$scope.$storage.displayMoney = ($scope.$storage.money/1000000);
+            }
+        
+        },10,0);
        
     };
     
@@ -244,7 +260,7 @@ app.controller('GameController', function($scope, $interval, $localStorage){
         $scope.$storage.money = 0;
         
         $scope.$storage.clickCost = 5;
-        $scope.$storage.clickDosh = 1;
+        $scope.$storage.clickDosh = 1000000;
         
         $scope.$storage.cowCost = 1;
         $scope.$storage.cows = 0;
