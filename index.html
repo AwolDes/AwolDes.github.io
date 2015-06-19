@@ -91,6 +91,30 @@
                 <button class="buy" ng-click="BuySalary()" ng-model="button" ng-disabled="salaryState">Salary: ${{$storage.salaryCost | number:2}}</button>
             </div>
             
+            <div class="pizzas maker second-row">
+
+                <p>Pizza Places: {{$storage.pizzaPlaces}} ({{$storage.pizzaBusinessDosh | number:2}}/sec)</p>
+                <button class="buy" ng-click="BuyPizza()" ng-model="button" ng-disabled="pizzaPlaceState">Pizza Place: ${{$storage.pizzaBusinessCost | number:2}}</button>
+            </div>
+            
+            <div class="icecreams maker second-row">
+
+                <p>Icecream Places: {{$storage.icecreamPlaces}} ({{$storage.icecreamBusinessDosh | number:2}}/sec)</p>
+                <button class="buy" ng-click="BuyIcecream()" ng-model="button" ng-disabled="icecreamPlaceState">Icecream Place: ${{$storage.icecreamBusinessCost | number:2}}</button>
+            </div>
+            
+            <div class="clothing maker second-row">
+
+                <p>Clothing Stores: {{$storage.clothingStores}} ({{$storage.clothingStoreDosh | number:2}}/sec)</p>
+                <button class="buy" ng-click="BuyClothing()" ng-model="button" ng-disabled="clothingStoreState">Clothing Store: ${{$storage.clothingStoreCost | number:2}}</button>
+            </div>
+            
+            <div class="food maker second-row">
+
+                <p>Food Stores: {{$storage.foodBusinesses}} ({{$storage.foodBusinessDosh | number:2}}/sec)</p>
+                <button class="buy" ng-click="BuyFood()" ng-model="button" ng-disabled="foodBusinessState">Food Store: ${{$storage.displayCost | number:2}}{{$storage.foodFormat}}</button>
+            </div>
+            
         </div>
         
         
