@@ -2,6 +2,7 @@ body{
     margin:0;
     background-color: #EEEEEE;
     font-family: 'Roboto Slab', serif;
+    
 }
 
 
@@ -88,6 +89,7 @@ button::-moz-focus-inner {
 .makers{
     margin-top: 150px;
     padding-bottom:500px;
+    
 }
 
 .money{
@@ -104,18 +106,30 @@ button::-moz-focus-inner {
     margin-top: 30px;
 }
 
-.cows{
-    margin-left: 13%;
+.right{
+    margin-left: 12%;
 }
 
-.pocket-money{
+
+@media (max-width: 768px) {
     
-    margin-left: 13%;
+     .right{
+         margin-left:0;
+     }
+    
+    .second-row{
+        margin-top: 0;
+    }
+    
+    .makers{
+        margin-left: 20%;
+        margin-top: 30%;
+    }
+    
+    
+         
 }
 
-.pizzas{
-    margin-left: 13%;    
-}
 
 
 

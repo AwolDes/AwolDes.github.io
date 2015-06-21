@@ -651,7 +651,7 @@ app.controller('GameController', function($scope, $interval, $localStorage){
         $scope.$storage.totalDosh = 0;
         
         
-        $scope.$storage.multi =2;
+        $scope.$storage.multi =1;
         $scope.$storage.resets = 0;
         $scope.$storage.resetCost = 100000;
         
