@@ -105,7 +105,10 @@ app.controller('GameController', function($scope, $interval, $localStorage){
         ]*/
     
     
-    
+    // Timer
+    $scope.timePlayed = 0;
+    $scope.displayMinutes = "";
+    $scope.minutes = 0;
     // For the buy button
     $scope.resetState = "true";
     // 1st Row
@@ -273,6 +276,16 @@ app.controller('GameController', function($scope, $interval, $localStorage){
             }
         
         },10,0);
+        
+        $interval(function(){
+            $scope.timePlayed += 1;
+            
+            if ($scope.timePlayed % 60 == 0){
+                $scope.minutes += 1;
+                $scope.timePlayed = 0;
+            }
+            
+        },1000,0);
        
     };
     
