@@ -1,6 +1,7 @@
 body{
     margin:0;
     background-color: #EEEEEE;
+    font-family: 'Roboto Slab', serif;
 }
 
 
@@ -13,7 +14,7 @@ button::-moz-focus-inner {
 
 
 .top-btn{
-    width:110px;
+    width:140px;
     height: 40px;
     border-radius: 5px;
     background-color:#26C281;

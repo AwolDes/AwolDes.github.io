@@ -4,6 +4,8 @@
 <head>
    
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
    
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
@@ -26,8 +28,15 @@
         <div class="money">
             <p>Your Cash: ${{ $storage.displayMoney | number:2 }}{{$storage.format}}</p>
             <p>Getting Paid: {{$storage.totalDosh| number:2}}/sec</p>
+            
             <button class="top-btn" ng-click="GetMoney()">Add ${{$storage.clickDosh | number:2}}</button>
-            <button class="top-btn" ng-click="reset()" ng-model="button" >Reset?</button>
+            
+            <button class="top-btn" ng-click="reset()" ng-model="button" ng-disabled="resetState">Reset: ${{$storage.resetCost | number:2}}</button>
+            
+            <button class="top-btn" ng-click="masterReset()" ng-model="button">Reset</button>
+            
+            <h2>Resets: {{$storage.resets}}</h2>
+            <h1>Multiplier: {{$storage.multi}} x</h1>
         </div>
         
         
@@ -99,8 +108,8 @@
             
             <div class="icecreams maker second-row">
 
-                <p>Icecream Places: {{$storage.icecreamPlaces}} ({{$storage.icecreamBusinessDosh | number:2}}/sec)</p>
-                <button class="buy" ng-click="BuyIcecream()" ng-model="button" ng-disabled="icecreamPlaceState">Icecream Place: ${{$storage.icecreamBusinessCost | number:2}}</button>
+                <p>Restaurants: {{$storage.icecreamPlaces}} ({{$storage.icecreamBusinessDosh | number:2}}/sec)</p>
+                <button class="buy" ng-click="BuyIcecream()" ng-model="button" ng-disabled="icecreamPlaceState">Restaurants: ${{$storage.icecreamBusinessCost | number:2}}</button>
             </div>
             
             <div class="clothing maker second-row">
