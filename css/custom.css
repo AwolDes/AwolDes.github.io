@@ -12,7 +12,9 @@ button::-moz-focus-inner {
 }
 
 
-
+.money{
+    margin-top: 10%;
+}
 
 .top-btn{
     width:140px;
@@ -87,8 +89,8 @@ button::-moz-focus-inner {
 }
 
 .makers{
-    margin-top: 150px;
-    padding-bottom:500px;
+    margin-top: 170px;
+    padding-bottom:100px;
     
 }
 
@@ -124,6 +126,13 @@ button::-moz-focus-inner {
     .makers{
         margin-left: 20%;
         margin-top: 30%;
+    }
+    h1{
+        font-size: 27px;    
+        
+    }
+    h2{
+        font-size: 20px;   
     }
     
     

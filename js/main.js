@@ -277,6 +277,7 @@ app.controller('GameController', function($scope, $interval, $localStorage){
         
         },10,0);
         
+        // Timer displayed to user
         $interval(function(){
             $scope.timePlayed += 1;
             

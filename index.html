@@ -22,12 +22,14 @@
 
 
 <body>
-    <h1 class="title">{{heading}}</h1>
+    
     
     <div class="game-screen" ng-controller="GameController" ng-init="checkGameState()">
         
         
         <div class="money">
+           
+           <h1 class="title">{{heading}}</h1>
             <p>Your Cash: ${{ $storage.displayMoney | number:2 }}{{$storage.format}}</p>
             <p>Getting Paid: {{$storage.totalDosh| number:2}}/sec</p>
             
