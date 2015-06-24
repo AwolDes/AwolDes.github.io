@@ -11,6 +11,10 @@ button::-moz-focus-inner {
   border: 0;
 }
 
+a{
+    color:crimson;
+}
+
 
 .money{
     margin-top: 10%;
@@ -113,6 +117,21 @@ button::-moz-focus-inner {
 }
 
 
+#about{
+    background-color: white;
+    width:500px;
+    height:auto;
+    padding: 12px;
+}
+
+.close{
+    background-color: firebrick;
+    color:white;
+    margin-left: 480px;
+    margin-top: 0px;
+    border: none;
+}
+
 @media (max-width: 768px) {
     
      .right{
@@ -133,6 +152,21 @@ button::-moz-focus-inner {
     }
     h2{
         font-size: 20px;   
+    }
+    
+    #about{
+        background-color: white;
+        width:90%;
+        height:auto;
+        padding: 12px;
+    }
+    
+    .top-btn{
+        width:160px;    
+    }
+    
+    .close{
+        margin-left: 87%;    
     }
     
     

@@ -12,6 +12,8 @@
     
     
     
+    
+    
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/gridism.css">
     
@@ -26,6 +28,7 @@
     
     <div class="game-screen" ng-controller="GameController" ng-init="checkGameState()">
         
+         
         
         <div class="money">
            
@@ -37,25 +40,32 @@
             
             <button class="top-btn" ng-click="reset()" ng-model="button" ng-disabled="resetState">Reset: ${{$storage.resetCost | number:2}}</button>
             
-            <button class="top-btn" ng-click="masterReset()" ng-model="button">Reset</button>
+            
             
             <h2>Resets: {{$storage.resets}}</h2>
             <h1>Multiplier: {{$storage.multi}} x</h1>
             <h2>Current session Duration: {{minutes}} minutes, {{timePlayed}} seconds</h2>
             
+            <button class="about_open top-btn" href="#about">About</button>
+        
+        <div id="about">
+            <button class="about_close close">X</button>
+            <h1>About</h1>
+            
+            <p>Get Doshed is a simple game with a simple objective- <b>earn as much money as you can!</b> Just start with adding money by clicking, and slowly build up the amount of dosh you can get with your dosh makers!</p>
+            <h1>Hints</h1>
+            <h3>Resets</h3>
+            <p>As soon as you can reset, buy it! <b>Each reset gives you a multiplier</b>, which helps earn you more dosh and gives you access to more upgrades!</p>
+            <h3>Clicking for Money</h3>
+            <p>Clicking to earn yourself moeny in the early stages of the game helps a lot, and will <b>get you upgrades much faster</b> than just waiting</p>
+            <h1>Development</h1>
+            <p>This game is not yet finished, as many more upgrades and fun features are yet to be added. If you have any ideas <a href="https://twitter.com/awoldes" target="_blank">tweet me</a>. Also, the code is free and open source <a href="https://github.com/AwolDes/get-paid" target="_blank">here</a>, just give some credit :D</p>
+        </div>
+            
         </div>
         
         
-        
-        <!--
-        <div class="makers">
-           <div ng-repeat="maker in makers" class="maker">
-               
-               <p>{{maker.name}}: {{maker.number}} ({{maker.dosh | number:2}})/sec</p>
-               <button class="buy" ng-click="{{maker.function}}" ng-model="button" ng-disabled="cowState">{{maker.buttonText}}: ${{maker.cost | number:2}}</button>
-               
-           </div>-->
-            <div class="makers grid">
+        <div class="makers grid">
             
             <div class="right unit one-fifth">
 
@@ -133,13 +143,7 @@
             </div>
             
         </div>
-        
-        
-        
-        
-        
-        
-        
+     
     </div>
     
 
@@ -153,6 +157,27 @@
   ga('send', 'pageview');
 
 </script>
+  
+     <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+   
+   <script src="http://vast-engineering.github.io/jquery-popup-overlay/jquery.popupoverlay.js"></script>
+   
+ 
+    
+    <script>
+    $(document).ready(function() {
+
+      // Initialize the plugin
+      $('#about').popup({
+      
+          scrolllock:true,
+          opacity: 0.3,
+          transition: 'all 0.3s'
+      
+      });
+
+    });
+  </script>
     
 </body>
 
