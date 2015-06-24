@@ -546,6 +546,7 @@ app.controller('GameController', function($scope, $interval, $localStorage){
     
     // Whoops! Restart your game for a huge cost (but the multi!)
     $scope.reset = function(){
+        
         $scope.$storage.money = 0;
         $scope.$storage.format = "";
         $scope.$storage.foodFormat="";
@@ -609,7 +610,73 @@ app.controller('GameController', function($scope, $interval, $localStorage){
         
     };
     
-    
+    $scope.masterReset = function(){
+        
+        $scope.$storage.money = 0;
+        $scope.$storage.format = "";
+        $scope.$storage.foodFormat="";
+        
+        $scope.$storage.clickCost = 5;
+        $scope.$storage.clickDosh = 1;
+        
+        $scope.$storage.cowCost = 20;
+        $scope.$storage.cows = 0;
+        $scope.$storage.cowDosh = 0;
+        
+        
+        $scope.$storage.piggybankCost = 200;
+        $scope.$storage.piggybanks = 0;
+        $scope.$storage.piggybankDosh = 0;
+        
+        $scope.$storage.walletCost = 1000;
+        $scope.$storage.wallets = 0;
+        $scope.$storage.walletDosh = 0;
+        
+        $scope.$storage.pocketMoneyCost = 10000;
+        $scope.$storage.pocketMoneyDosh = 0;
+        $scope.$storage.pocketMoney = 0;
+        
+        $scope.$storage.paycheckCost = 15000;
+        $scope.$storage.paycheckDosh = 0;
+        $scope.$storage.paycheck = 0;
+        
+        $scope.$storage.websiteCost = 20000;
+        $scope.$storage.websiteDosh = 0;
+        $scope.$storage.website = 0;
+        
+        $scope.$storage.salaryCost = 25000;
+        $scope.$storage.salaryDosh = 0;
+        $scope.$storage.salary = 0;
+        
+        $scope.$storage.pizzaBusinessCost = 100000;
+        $scope.$storage.pizzaBusinessDosh = 0;
+        $scope.$storage.pizzaPlaces = 0;
+        
+        $scope.$storage.icecreamBusinessCost = 200000;
+        $scope.$storage.icecreamBusinessDosh = 0;
+        $scope.$storage.icecreamPlaces = 0;
+        
+        $scope.$storage.clothingStoreCost = 300000;
+        $scope.$storage.clothingStoreDosh = 0;
+        $scope.$storage.clothingStores = 0;
+        
+        $scope.$storage.foodBusinessCost = 400000;
+        $scope.$storage.foodBusinessDosh = 0;
+        $scope.$storage.foodBusinesses = 0;
+        
+        $scope.$storage.totalDosh = 0;
+        
+        
+        $scope.$storage.multi =1;
+        $scope.$storage.resets = 0;
+        $scope.$storage.resetCost = 100000;
+        
+        $scope.timePlayed = 0;
+        $scope.minutes = 0;
+        
+        
+        
+    };
 });
 
 

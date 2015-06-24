@@ -47,6 +47,7 @@
             <h2>Current session Duration: {{minutes}} minutes, {{timePlayed}} seconds</h2>
             
             <button class="about_open top-btn" href="#about">About</button>
+            
         
         <div id="about">
             <button class="about_close close">X</button>
@@ -61,6 +62,12 @@
             <h1>Development</h1>
             <p>This game is not yet finished, as many more upgrades and fun features are yet to be added. If you have any ideas <a href="https://twitter.com/awoldes" target="_blank">tweet me</a>. Also, the code is free and open source <a href="https://github.com/AwolDes/get-paid" target="_blank">here</a>, just give some credit :D</p>
         </div>
+           
+           <button class="reset_open top-btn" ng-model="button">Master Reset</button>
+           <div id="reset">
+               <p style="text-align: center; margin-top:30px;">This will reset all your stats, are you sure?</p>
+                <button class="reset_close red-btn" ng-click="masterReset()" ng-model="button">Reset</button>
+           </div>
             
         </div>
         
@@ -169,6 +176,14 @@
 
       // Initialize the plugin
       $('#about').popup({
+      
+          scrolllock:true,
+          opacity: 0.3,
+          transition: 'all 0.3s'
+      
+      });
+        
+        $('#reset').popup({
       
           scrolllock:true,
           opacity: 0.3,
