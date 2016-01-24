@@ -36,3 +36,14 @@ body{
 .new:hover{
     background-color: #c0392b;
 }
+
+.twitter{
+    color:white;
+    text-align: center;
+    margin-top:100px;
+}
+
+.twitter a{
+    color:#ea6153;
+    
+}
