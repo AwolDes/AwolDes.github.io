@@ -1,231 +1,38 @@
 body{
-    margin:0;
-    background-color: #EEEEEE;
-    font-family: 'Roboto Slab', serif;
-    
+    background-color: #2c3e50;
+    font-family: 'Comfortaa', cursive;
 }
 
-
-
-button::-moz-focus-inner {
-  border: 0;
-}
-
-a{
-    color:crimson;
-}
-
-
-.money{
-    margin-top: 10%;
-}
-
-
-
-
-.top-btn{
-    width:140px;
-    height: 40px;
-    border-radius: 5px;
-    background-color:#26C281;
-    color:black;
-    border-color: #03A678;
-    
-}
-
-
-.top-btn:disabled{
-    border: none;
-    background-color: #D2D7D3;
-}
-
-.top-btn[disabled]:hover{
-    border: none;
-    background-color: #D2D7D3;
-}
-
-.top-btn:hover{
-    background-color:#2ECC71;
-    border-color: #2ecc71;
-}
-
-.top-btn:focus{
-    border-color: none;
-    outline: none;
-}
-
-.buy{
-    width:110px;
-    height: 40px;
-    border-radius: 5px;
-    background-color:#26C281;
-    color:black;
-    border-color: #03A678;
-    margin-left:10%;
-}
-
-
-.buy:disabled{
-    border: none;
-    background-color: #D2D7D3;
-}
-
-.buy[disabled]:hover{
-    border: none;
-    background-color: #D2D7D3;
-}
-
-.buy:hover{
-    background-color:#2ECC71;
-    border-color: #2ecc71;
-}
-
-.buy:focus{
-    border-color: none;
-    outline: none;
-}
-
-.red-btn{
-    width:140px;
-    height: 40px;
-    border-radius: 5px;
-    background-color:crimson;
+.header{
     color:white;
-    border-color:crimson;
-    margin-left: 30px;
-    margin-top: 20px;
-    
-}
-
-
-.red-btn:disabled{
-    border: none;
-    background-color: #D2D7D3;
-}
-
-.red-btn[disabled]:hover{
-    border: none;
-    background-color: #D2D7D3;
-}
-
-.red-btn:hover{
-    background-color:red;
-    border-color: red;
-}
-
-.red-btn:focus{
-    border-color: none;
-    outline: none;
-}
-
-.title{
     text-align: center;
-    color:#2ecc71;
+    margin-top:10px;
 }
 
-.game-screen{
-    color:#2ecc71;
-    
-}
-
-.makers{
-    margin-top: 170px;
-    padding-bottom:100px;
-    
-}
-
-.money{
+.recipe{
     text-align: center;
-}
-
-.maker{
-    width:20%;
-    float:left;
-    position: relative;
-}
-
-.second-row{
-    margin-top: 30px;
-}
-
-.right{
-    margin-left: 12%;
-}
-
-
-#about{
-    background-color: white;
-    width:500px;
-    height:auto;
-    padding: 12px;
-    border-radius:7px;
-}
-
-#reset{
-    background-color: white;
-    width:200px;
-    height:200px;
-    padding: 12px;
-    border-radius:7px;
-    
-}
-
-.close{
-    background-color: firebrick;
+    font-size: 80px;
     color:white;
-    margin-left: 480px;
-    margin-top: 0px;
-    border: none;
+    text-decoration: none;
+    margin-top:200px;
 }
 
-.close:hover{
-    background-color: red;
-    
+.recipe:hover{
+    text-decoration: underline;
 }
 
-@media (max-width: 768px) {
-    
-     .right{
-         margin-left:0;
-     }
-    
-    .second-row{
-        margin-top: 0;
-    }
-    
-    .makers{
-        margin-left: 20%;
-        margin-top: 30%;
-    }
-    h1{
-        font-size: 27px;    
-        
-    }
-    h2{
-        font-size: 20px;   
-    }
-    
-    #about{
-        background-color: white;
-        width:90%;
-        height:auto;
-        padding: 12px;
-    }
-    
-    .top-btn{
-        width:160px;    
-    }
-    
-    .close{
-        margin-left: 87%;    
-    }
-    
-    
-         
+.new{
+    border-radius: 7px;
+    background-color: #ea6153;
+    border:none;
+    height:50px;
+    width:140px;
+    font-size:30px;
+    cursor:pointer;
+    margin-left:45%;
+    color:white;
 }
 
-
-
-
-
-
+.new:hover{
+    background-color: #c0392b;
+}

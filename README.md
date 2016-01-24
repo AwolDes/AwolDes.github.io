@@ -1,2 +1,2 @@
-# get-paid
-An Incremental game in AngularJS
+# randomcook
+An app that gives random recipes
